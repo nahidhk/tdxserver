@@ -1,0 +1,49 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    margin: 0;
+    font-family: "Saira", sans-serif;
+}
+.nav{
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+}
+h1{
+    margin: 0;
+    
+}
+.flex{
+    display: flex;
+}
+.around{
+    justify-content: space-around;
+}
+.btnbox{
+    height: 40px;
+    border: 1px solid #4680ff;
+    border-radius: 100px;
+}
+.btn{
+    height: 40px;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+.cr{
+    background-color: #4681ff00;
+    border: none;
+    outline: none;
+    color: #4680ff;
+    cursor: pointer;
+    font-family: "Saira", sans-serif;
+    border-radius: 100px;
+}
+.active{
+    background-color: #4680ff;
+    color: #fff;
+}
