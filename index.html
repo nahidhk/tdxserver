@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+  />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css?v=1.0.0" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>tdx Server</title>
   </head>
   <body>
-    <nav class="nav">
+    <nav class="nav animate__animated animate__bounceInDown">
       <div class="flex around">
         <div>
           <blockquote>
-            <h1>TDX SERVER</h1>
+            <h1 class="mblogo">TDX SERVER</h1>
           </blockquote>
         </div>
         <div>
           <blockquote>
             <div class="btnbox">
-                <button class="btn cr">Login</button>
-                <button class="btn cr active">New Account</button>
+              <button onclick="openpopup('login')" class="btn cr">Login</button>
+              <button class="btn cr active">New Account</button>
             </div>
           </blockquote>
         </div>
       </div>
     </nav>
+    <div id="login" class="vcc">
+      <div class="popup ">
+        <div class="underline flex beet">
+          <br>
+          <h1>Login</h1>
+          <div class="pointer flex center medel icon" onclick="closepopup('login')"><i class="fas fa-times"></i></div>
+        </div>
+        <br><br>
+          <div class="flex inputbox"> 
+            <label for="email" class="input-icon">
+              <i class="fas fa-envelope"></i>
+            </label>
+            <input class="input-tag" type="email" name="email" id="email" placeholder="Email" required />
+          </div>
+          <div class="flex inputbox">
+            <label for="" class="input-icon">
+              <i class="fas fa-user-lock"></i>
+            </label>
+            <input type="password" class="input-tag" id="password" placeholder="if password">
+            <span class="input-icon"><i onclick="showpassword(this)" class="fas fa-eye pointer"></i></span>
+          </div>
+          <div class="flex center">
+            <button class="btn" id="send">Login</button>
+          </div>
+        </form>
+      <br><hr><br>
+      <div class="flex">
 
+      </div>
+      </div>
 
+    </div>
 
-
-    <!-- Server Working  -->
-
-    <center>
-        <br><br><br><br><br><br>
-        <h1>
-            Server is working
-        </h1>
-        <h2>
-            Server is running on port ERROR
-        </h2>
-        <a href="mailto:nahidhk2007@gmail.com">
-            <button class="btn cr">Send Mail Nahid TD</button>
-    </center>
-
-
-
-
+    <!-- Project JavaScript -->
+     <script src="src/js/script.js"></script>
   </body>
 </html>
