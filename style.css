@@ -104,7 +104,7 @@ h1 {
 .pointer {
   cursor: pointer;
 }
-#send{
+.send{
   background-color: #4680ff;
   color: #fff;
   border: none;
@@ -119,7 +119,11 @@ h1 {
 .vcc{
     display: none;
 }
-
+.tel{
+    border: none;
+    outline: none;
+    background-color: #fff;
+}
 
 /* Thsis is a demo  */
 .test{

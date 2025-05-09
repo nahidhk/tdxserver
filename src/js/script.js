@@ -1,20 +1,31 @@
 function showpassword(icon) {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-    icon.classList.remove("fa-eye");
-    icon.classList.add("fa-eye-slash");
-  } else {
-    x.type = "password";
-    icon.classList.remove("fa-eye-slash");
-    icon.classList.add("fa-eye");
-  }
+    var x = [
+        document.getElementById("password"),
+        document.getElementById("password1")
+    ];
+    
+    if (x[0].type === "password") {
+        x.forEach(field => field.type = "text");
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        x.forEach(field => field.type = "password");
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
 }
 
-document.getElementById("send").addEventListener("click", function () {
-  document.getElementById("send").innerHTML =
-    '<i class="fa fa-spinner fa-spin"></i>';
-});
+
+document.querySelectorAll(".send").forEach(function(button) {
+    button.addEventListener("click", function () {
+      document.querySelectorAll(".send").forEach(function(btn) {
+        btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+      });
+    });
+  });
+  
+
+
 
 function closepopup(mydata) {
   var popup = document.getElementById(mydata);
