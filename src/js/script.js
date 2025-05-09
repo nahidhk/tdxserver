@@ -48,3 +48,18 @@ function openpopup(mydata) {
 function working(){
   alert("This feature is not available yet.");
 }
+
+
+document.querySelectorAll('[class*="font:"]').forEach(el => {
+  const match = el.className.match(/font:(\d+)px/);
+  if (match) {
+    el.style.fontSize = match[1] + 'px';
+  }
+});
+
+document.querySelectorAll('[class*="w:"]').forEach(el => {
+  const match = el.className.match(/w:(\d+)%/);
+  if (match) {
+    el.style.width = match[1];
+  }
+});

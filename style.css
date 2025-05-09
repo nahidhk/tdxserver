@@ -3,13 +3,15 @@
 body {
   margin: 0;
   font-family: "Saira", sans-serif;
+  background-color: #ffffff;
 }
 
 .nav {
+  top: 0;
   background-color: #333;
   color: #fff;
   position: fixed;
-  z-index: 0;
+  z-index: 100;
   width: 100%;
 }
 
@@ -21,7 +23,8 @@ h1 {
   display: flex;
 }
 
-.around {
+.around,
+.mbaround {
   justify-content: space-around;
 }
 
@@ -156,6 +159,22 @@ h1 {
   animation: closes 0.5s forwards;
 }
 
+.otc {
+  text-transform: uppercase;
+  color: #918d8d;
+}
+
+.end {
+  display: flex;
+  background-image: url("https://cdn.pixabay.com/photo/2017/07/31/16/18/engineer-2558705_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
 @keyframes closes {
   0% {
     transform: scale(1);
@@ -184,10 +203,10 @@ h1 {
   }
 }
 
-.contbtn{
+.contbtn {
   height: 30px;
   width: auto;
-padding: 10px;
+  padding: 10px;
   border-radius: 4px;
   border: none;
   outline: none;
@@ -195,20 +214,44 @@ padding: 10px;
   font-size: large;
   margin: 5px;
 }
-.github{
+
+.github {
   background-color: #000;
   color: #fff;
 }
-.google{
+
+.google {
   background-color: #dadada;
   color: #000;
 }
-.facebook{
+
+.facebook {
   background-color: #3b5998;
   color: #fff;
 }
 
+.padding {
+  padding: 10px;
+  border-radius: 10px;
+}
 
+.style {
+  backdrop-filter: blur(10px);
+  background-color: #000000d5;
+  width: 85%;
+}
+
+.w85 {
+  width: 85%;
+}
+
+.textcenter {
+  text-align: center;
+}
+
+.textstyle {
+  color: #ff7300;
+}
 
 
 @media (max-width: 768px) {
@@ -219,11 +262,21 @@ padding: 10px;
   .mblogo {
     display: none;
   }
-  .colam{
+
+  .colam {
     flex-direction: column;
   }
-  .contbtn{
+
+  .contbtn {
     text-align: center;
+  }
+
+  .mbaround {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .mvc{
+    display: none;
   }
 
 }
