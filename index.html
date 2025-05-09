@@ -6,7 +6,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
     integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="style.css?v=1.0.0">
+    <link id="dynamic-style" rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tdx Server</title>
@@ -62,8 +62,27 @@
         <button class="btn send">Login</button>
       </div>
       </form>
-      <br>
+      <p class="flex center">
+        <span>Don't have an account?</span>
+        <button onclick="openpopup('singup')" class="btn cr">Create Account</button>
       <hr>
+      <p class="flex center">
+        connect with
+      </p>
+      <div class="flex center colam" onclick="working()">
+        <div class="contbtn github" >
+          <i class="fab fa-github"></i>
+          Github
+        </div>
+        <div class="contbtn google ">
+          <i class="fab fa-google"></i>
+          Google
+        </div>
+        <div class="contbtn facebook">
+          <i class="fab fa-facebook"></i>
+          Facebook
+        </div>
+      </div>
       <br>
       <div class="flex"></div>
     </div>
@@ -72,7 +91,7 @@
 
 
   <!-- new accountcode -->
-  <div class="darkbox" id="singup">
+  <div class="darkbox vcc" id="singup">
     <div class="popup">
       <div class="underline flex beet">
         <br>
@@ -95,9 +114,9 @@
             <i class="fas fa-phone-flip"></i>
           </label>
           <select name="code" class="tel" name="tel" id="tel">
-            <option  value="+880">+880</option>
+            <option value="+880">+880</option>
           </select>
-          <input name="phone" type="tel" class="input-tag"  placeholder="18xx-xxxxxx" required>
+          <input name="phone" type="tel" class="input-tag" placeholder="18xx-xxxxxx" required>
         </div>
         <div class="flex inputbox">
           <label for="" class="input-icon">
@@ -108,12 +127,35 @@
             <i onclick="showpassword(this)" class="fas fa-eye pointer"></i>
           </span>
         </div>
-        <div class="flex center"><button class="btn send">Create Account</button></div>
-     <br>
-     <hr>
-     <br>
+        <div class="flex center">
+          <button class="btn send">Create Account</button>
+        </div>
 
       </form>
+      <p class="flex center">
+        <span>Already have an account?</span>
+        <button onclick="openpopup('login')" class="btn cr">Login</button>
+
+      </p>
+      <hr>
+      <p class="flex center">
+        connect with
+      </p>
+      <div class="flex center colam" onclick="working()">
+        <div class="contbtn github" >
+          <i class="fab fa-github"></i>
+          Github
+        </div>
+        <div class="contbtn google ">
+          <i class="fab fa-google"></i>
+          Google
+        </div>
+        <div class="contbtn facebook">
+          <i class="fab fa-facebook"></i>
+          Facebook
+        </div>
+      </div>
+      <br>
     </div>
   </div>
 
@@ -124,7 +166,8 @@
 
 
   <!-- Project JavaScript -->
-  <script src="src/js/script.js"></script>
+  <script id="dynamic-script" src="src/js/script.js"></script>
+<script src="cachebuster.js"></script> 
 </body>
 
 </html>

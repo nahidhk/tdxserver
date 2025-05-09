@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: "Saira", sans-serif;
 }
+
 .nav {
   background-color: #333;
   color: #fff;
@@ -11,29 +12,37 @@ body {
   z-index: 0;
   width: 100%;
 }
+
 h1 {
   margin: 0;
 }
+
 .flex {
   display: flex;
 }
+
 .around {
   justify-content: space-around;
 }
+
 .center {
   justify-content: center;
 }
-.beet{
-    justify-content: space-between;
+
+.beet {
+  justify-content: space-between;
 }
-.medel{
-    align-items: center;
+
+.medel {
+  align-items: center;
 }
+
 .btnbox {
   height: 40px;
   border: 1px solid #4680ff;
   border-radius: 100px;
 }
+
 .btn {
   height: 40px;
   width: auto;
@@ -41,6 +50,7 @@ h1 {
   padding-right: 10px;
   border-radius: 10px;
 }
+
 .cr {
   background-color: #4681ff00;
   border: none;
@@ -50,10 +60,12 @@ h1 {
   font-family: "Saira", sans-serif;
   border-radius: 100px;
 }
+
 .active {
   background-color: #4680ff;
   color: #fff;
 }
+
 .darkbox {
   background-color: #00000054;
   height: 100vh;
@@ -62,6 +74,7 @@ h1 {
   width: 100%;
   z-index: 101;
 }
+
 .popup {
   background-color: #fff;
   width: 400px;
@@ -73,6 +86,7 @@ h1 {
   z-index: 102;
   border-radius: 10px;
 }
+
 .underline {
   text-align: center;
   color: #fff;
@@ -80,11 +94,13 @@ h1 {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+
 .inputbox {
   display: flex;
   margin: 10px;
   border: 1px solid #4680ff;
 }
+
 .input-tag {
   width: 100%;
   height: 40px;
@@ -92,19 +108,22 @@ h1 {
   outline: none;
   padding-left: 10px;
 }
-.input-icon{
-    height: 40px;
-    width: 40px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #464646;
+
+.input-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #464646;
 }
+
 .pointer {
   cursor: pointer;
 }
-.send{
+
+.send {
   background-color: #4680ff;
   color: #fff;
   border: none;
@@ -112,56 +131,99 @@ h1 {
   width: 80%;
   cursor: pointer;
 }
-.icon{
-    font-size: 1.5rem;
-    padding: 10px;
+
+.icon {
+  font-size: 1.5rem;
+  padding: 10px;
 }
-.vcc{
-    display: none;
+
+.vcc {
+  display: none;
 }
-.tel{
-    border: none;
-    outline: none;
-    background-color: #fff;
+
+.tel {
+  border: none;
+  outline: none;
+  background-color: #fff;
 }
 
 /* Thsis is a demo  */
-.test{
-    background-color: red;
+.test {
+  background-color: red;
 }
-.close{
-   animation: closes 0.5s forwards;
+
+.close {
+  animation: closes 0.5s forwards;
 }
+
 @keyframes closes {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(0);
-      opacity: 0;
-    }
+  0% {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  .open{
-    animation: opens 0.5s forwards;
- }
- @keyframes opens {
-     0% {
-       transform: scale(0);
-       opacity: 0;
-     }
-     100% {
-       transform: scale(1);
-       opacity: 1;
-     }
-   }
-   @media (max-width: 768px) {
-   .popup{
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.open {
+  animation: opens 0.5s forwards;
+}
+
+@keyframes opens {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.contbtn{
+  height: 30px;
+  width: auto;
+padding: 10px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: large;
+  margin: 5px;
+}
+.github{
+  background-color: #000;
+  color: #fff;
+}
+.google{
+  background-color: #dadada;
+  color: #000;
+}
+.facebook{
+  background-color: #3b5998;
+  color: #fff;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .popup {
     width: 90%;
-   }
-   .mblogo{
+  }
+
+  .mblogo {
     display: none;
-   }
-    
-   }
+  }
+  .colam{
+    flex-direction: column;
+  }
+  .contbtn{
+    text-align: center;
+  }
+
+}

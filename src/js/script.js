@@ -37,4 +37,14 @@ function openpopup(mydata) {
   var popup = document.getElementById(mydata);
   popup.classList.remove("vcc");
   popup.classList.add("darkbox", "open");
+  if (mydata == "login"){
+    closepopup('singup')
+  }
+  if (mydata == "singup"){
+    closepopup('login')
+  }
+}
+
+function working(){
+  alert("This feature is not available yet.");
 }
