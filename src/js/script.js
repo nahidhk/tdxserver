@@ -63,3 +63,20 @@ document.querySelectorAll('[class*="w:"]').forEach(el => {
     el.style.width = match[1];
   }
 });
+
+const hash = window.location.hash;
+if (hash) {
+  if (hash === "#login") {
+    openpopup('login');
+  }
+}
+
+
+
+const contolmyaccount = localStorage.getItem('login');
+if (contolmyaccount === "true") {
+ document.getElementById("uiux").style.display = "none";
+ document.getElementById("main").style.display = "block";
+}
+const myemail = localStorage.getItem('Email');
+document.getElementById("myemail").innerHTML = myemail;

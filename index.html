@@ -43,24 +43,25 @@
       </div>
       <br>
       <br>
-      <div class="flex inputbox">
-        <label for="email" class="input-icon">
-          <i class="fas fa-envelope"></i>
-        </label>
-        <input class="input-tag" type="email" name="email" id="email" placeholder="Email" required>
-      </div>
-      <div class="flex inputbox">
-        <label for="" class="input-icon">
-          <i class="fas fa-user-lock"></i>
-        </label>
-        <input type="password" class="input-tag" id="password" placeholder="if password">
-        <span class="input-icon">
-          <i onclick="showpassword(this)" class="fas fa-eye pointer"></i>
-        </span>
-      </div>
-      <div class="flex center">
-        <button class="btn send">Login</button>
-      </div>
+      <form action="/account/login.php" method="post">
+        <div class="flex inputbox">
+          <label for="email" class="input-icon">
+            <i class="fas fa-envelope"></i>
+          </label>
+          <input class="input-tag" type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="flex inputbox">
+          <label for="" class="input-icon">
+            <i class="fas fa-user-lock"></i>
+          </label>
+          <input type="password" class="input-tag" id="password" name="password" placeholder="if password">
+          <span class="input-icon">
+            <i onclick="showpassword(this)" class="fas fa-eye pointer"></i>
+          </span>
+        </div>
+        <div class="flex center">
+          <button class="btn send">Login</button>
+        </div>
       </form>
       <p class="flex center">
         <span>Don't have an account?</span>
@@ -122,7 +123,7 @@
           <label for="" class="input-icon">
             <i class="fas fa-user-lock"></i>
           </label>
-          <input type="password" class="input-tag" id="password1" placeholder="new password" required>
+          <input type="password" class="input-tag" id="password1" name="password" placeholder="new password" required>
           <span class="input-icon">
             <i onclick="showpassword(this)" class="fas fa-eye pointer"></i>
           </span>
@@ -160,16 +161,16 @@
   </div>
 
 
-    
+
   <!-- UIUX -->
-  <section class="end">
-  
+  <section class="end" id="uiux">
+
     <div class="flex center">
       <div class="flex mbaround style padding">
         <div>
-         
+
           <p class="">
-            <blockquote>
+          <blockquote>
 
             <span class="font:20px otc">TDX Server</span>
             <br>
@@ -177,14 +178,14 @@
             <span class="otc">Upload your Photo, Video and Document with shear Link</span>
             <br>
           </blockquote>
-            <div>
-              <blockquote class="flex">
-                <div class="btnbox">
-                  <button onclick="openpopup('login')" class="btn cr">singin</button>
-                  <button onclick="openpopup('singup')" class="btn cr active">Create Account</button>
-                </div>
-              </blockquote>
-            </div>
+          <div>
+            <blockquote class="flex">
+              <div class="btnbox">
+                <button onclick="openpopup('login')" class="btn cr">singin</button>
+                <button onclick="openpopup('singup')" class="btn cr active">Create Account</button>
+              </div>
+            </blockquote>
+          </div>
           </p>
         </div>
         <div class="mvc">
@@ -199,6 +200,19 @@
 
   </section>
 
+
+
+  <!-- Main Account and home page  -->
+
+  <section class="vcc" id="main">
+    <br><br><br><br><br>
+<center>
+  <h1>
+    Wlcome to tdx server <br>
+    your email is <span id="myemail"></span> <br>
+  </h1>
+</center>
+  </section>
 
 
 

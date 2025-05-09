@@ -10,9 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $code = $_POST['code'];
     $phone = preg_replace('/^0/', '', $_POST['phone']);
     $full_phone = $code . $phone;
-    $password = $_POST['password'] ?? $_POST['password1'];
+    $password = $_POST['password'];
 
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
     // 🔍 Check if email or phone already exists
     $check_sql = "SELECT id FROM users WHERE email = ? OR phone = ?";
@@ -22,15 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $check_stmt->store_result();
 
     if ($check_stmt->num_rows > 0) {
-        echo "❌ Email or phone number already exists.";
+        require_once '../src//error/createError.html';
     } else {
         // ✅ Insert if not exists
         $insert_sql = "INSERT INTO users (email, phone, password) VALUES (?, ?, ?)";
         $insert_stmt = $conn->prepare($insert_sql);
-        $insert_stmt->bind_param("sss", $email, $full_phone, $hashed_password);
+        $insert_stmt->bind_param("sss", $email, $full_phone, $password);
 
         if ($insert_stmt->execute()) {
-            echo "✅ Account created successfully!";
+            header("Location: index.php");
+            exit();
         } else {
             echo "❌ Error: " . $insert_stmt->error;
         }
