@@ -1,3 +1,34 @@
+
+<?php
+session_start();
+
+$email = "admin@admin.com";
+
+require_once __DIR__ . '/config/config.php'; // config.php ইনক্লুড করো
+
+$sql = "SELECT * FROM users WHERE email = ?";
+$stmt = $conn->prepare($sql); // ✅ এখানে $conn
+
+if (!$stmt) {
+    die("Prepare failed: " . $conn->error);
+}
+
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
+} else {
+    echo "User not found.";
+    exit;
+}
+
+$stmt->close();
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +44,7 @@
 </head>
 
 <body>
+  <section class="end" id="uiux">
   <nav class="nav animate__animated animate__bounceInDown">
     <div class="flex around">
       <div>
@@ -23,10 +55,11 @@
       </div>
       <div>
         <blockquote>
-          <div class="btnbox">
+          <div class="btnbox" id="logbox">
             <button onclick="openpopup('login')" class="btn cr">Login</button>
             <button onclick="openpopup('singup')" class="btn cr active">New Account</button>
           </div>
+          
         </blockquote>
       </div>
     </div>
@@ -163,7 +196,7 @@
 
 
   <!-- UIUX -->
-  <section class="end" id="uiux">
+  
 
     <div class="flex center">
       <div class="flex mbaround style padding">
@@ -205,14 +238,34 @@
   <!-- Main Account and home page  -->
 
   <section class="vcc" id="main">
-    <br><br><br><br><br>
-<center>
-  <h1>
-    Wlcome to tdx server <br>
-    your email is <span id="myemail"></span> <br>
-  </h1>
-</center>
+   <div class="mynav flex around">
+    <span class="line">TDX SERVER</span>
+      <span onclick="openpopup('account')" class="cr">Account</span>
+      
+   </div>
+  <div class="darkbox" id="account">
+    <div class="popup">
+      <div class="underline flex beet">
+        <br>
+        <h1>UserID : <?php echo $user['id']?><?php echo $user['username']?></h1>
+        <div class="pointer flex center medel icon" onclick="closepopup('account')">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <br>
+      <div class="flex center">
+        <div class="textcenter">
+          <img  class="userlogo" src="/src/img/home.png" alt="" srcset="">
+
+          <h1>
+            <?php echo $user['name']?> <i class="fas fa-pen-to-square cr"></i>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
   </section>
+
 
 
 

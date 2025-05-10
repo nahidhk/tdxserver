@@ -253,6 +253,24 @@ h1 {
   color: #ff7300;
 }
 
+.userlogo{
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  border: 2px solid #ff0080;
+  padding: 2px;
+}
+.mynav{
+  height: auto;
+  width: 100%;
+  background-color: #dbdbdb;
+  position: fixed;
+  z-index: 100;
+  padding: 10px;
+}
+.line{
+  border-bottom: 1px solid #000;
+}
 
 @media (max-width: 768px) {
   .popup {
