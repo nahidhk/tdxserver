@@ -2,12 +2,12 @@
 <?php
 session_start();
 
-$email = "admin@admin.com";
+$email = $_SESSION['email'];
 
-require_once __DIR__ . '/config/config.php'; // config.php ইনক্লুড করো
+require_once __DIR__ . '/config/config.php'; 
 
 $sql = "SELECT * FROM users WHERE email = ?";
-$stmt = $conn->prepare($sql); // ✅ এখানে $conn
+$stmt = $conn->prepare($sql); 
 
 if (!$stmt) {
     die("Prepare failed: " . $conn->error);
@@ -20,8 +20,8 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
 } else {
-    echo "User not found.";
-    exit;
+   // echo "User not found.";
+    
 }
 
 $stmt->close();
@@ -137,6 +137,12 @@ $conn->close();
       <br>
       <br>
       <form action="/account/create.php" method="post">
+              <div class="flex inputbox">
+          <label for="email" class="input-icon">
+            <i class="fas fa-user"></i>
+          </label>
+          <input class="input-tag" type="text" name="name" id="name" placeholder="Full Name" required>
+        </div>
         <div class="flex inputbox">
           <label for="email" class="input-icon">
             <i class="fas fa-envelope"></i>
@@ -237,34 +243,17 @@ $conn->close();
 
   <!-- Main Account and home page  -->
 
-  <section class="vcc" id="main">
-   <div class="mynav flex around">
-    <span class="line">TDX SERVER</span>
-      <span onclick="openpopup('account')" class="cr">Account</span>
-      
-   </div>
-  <div class="darkbox" id="account">
-    <div class="popup">
-      <div class="underline flex beet">
-        <br>
-        <h1>UserID : <?php echo $user['id']?><?php echo $user['username']?></h1>
-        <div class="pointer flex center medel icon" onclick="closepopup('account')">
-          <i class="fas fa-times"></i>
-        </div>
-      </div>
-      <br>
-      <div class="flex center">
-        <div class="textcenter">
-          <img  class="userlogo" src="/src/img/home.png" alt="" srcset="">
 
-          <h1>
-            <?php echo $user['name']?> <i class="fas fa-pen-to-square cr"></i>
-          </h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  </section>
+
+<?php
+if ($_COOKIE['login'] === 'true') {
+  echo "okay";
+    require_once './my/my.php';
+}
+?>
+
+
+  
 
 
 

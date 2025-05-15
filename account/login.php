@@ -31,15 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbPassword = $user['password'];
 
         // সরাসরি password match করা
-        if ($password === $dbPassword) {
-            $_SESSION['email'] = $user['email'];
-
-            echo "<script>
-                localStorage.setItem('Email', '" . addslashes($user['email']) . "');
-                window.location.href = 'dashboard.php';
-            </script>";
-            exit;
-        } else {
+   if ($password === $dbPassword) {
+    setcookie("login", "true", time() + 31536000, "/");
+    setcookie("email", $email, time() + 31536000, "/");
+     header("Location:/index.php");
+    exit; 
+}else {
             echo "<script>
                 const v = confirm('Incorrect password! Try again');
                 if (v === true || v === false) {
