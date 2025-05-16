@@ -72,12 +72,20 @@ if (hash) {
 }
 
 
+const contolmyaccount = decodeURIComponent(document.cookie.split('; ').find(c => c.startsWith('login='))?.split('=')[1] || '');
 
-const contolmyaccount = localStorage.getItem('login');
 if (contolmyaccount === "true") {
  document.getElementById("uiux").style.display = "none";
  document.getElementById("main").style.display = "block";
  document.getElementById("logbox").style.display = "none";
+ 
 }
-const myemail = localStorage.getItem('Email');
-document.getElementById("myemail").innerHTML = myemail;
+//const myemail = localStorage.getItem('Email');
+//document.getElementById("myemail").innerHTML = myemail;
+
+
+
+
+//  login true and next page load data in cookie
+
+

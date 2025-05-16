@@ -1,33 +1,4 @@
 
-<?php
-session_start();
-
-$email = $_SESSION['email'];
-
-require_once __DIR__ . '/config/config.php'; 
-
-$sql = "SELECT * FROM users WHERE email = ?";
-$stmt = $conn->prepare($sql); 
-
-if (!$stmt) {
-    die("Prepare failed: " . $conn->error);
-}
-
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $user = $result->fetch_assoc();
-} else {
-   // echo "User not found.";
-    
-}
-
-$stmt->close();
-$conn->close();
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -241,21 +212,88 @@ $conn->close();
 
 
 
-  <!-- Main Account and home page  -->
 
 
 
-<?php
-if ($_COOKIE['login'] === 'true') {
-  echo "okay";
-    require_once './my/my.php';
-}
-?>
+
+
 
 
   
 
 
+  <!-- Main Account and home page  -->
+
+
+<?php
+
+
+$email = $_COOKIE['email'] ?? null;
+if (!$email) {
+    goto end;
+}else{
+
+require_once __DIR__ . '/config/config.php'; 
+
+$sql = "SELECT * FROM users WHERE email = ?";
+$stmt = $conn->prepare($sql); 
+
+if (!$stmt) {
+    die("Prepare failed: " . $conn->error);
+}
+
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
+} else {
+    echo "User not found.";
+    
+}
+
+$stmt->close();
+$conn->close();
+}
+?>
+<!-- Php script -->
+
+<section class="vcc" id="main">
+   <div class="mynav flex around">
+    <span class="line">TDX SERVER</span>
+      <span onclick="openpopup('account')" class="cr">Account</span>
+      
+   </div>
+  <div class="darkbox" id="account">
+    <div class="popup">
+      <div class="underline flex beet">
+        <br>
+        <h1>UserID : <?php echo $user['id']?>-<?php echo $user['username']?></h1>
+        <div class="pointer flex center medel icon" onclick="closepopup('account')">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <br>
+      <div class="flex center">
+        <div class="textcenter">
+          <img  class="userlogo" src="/src/img/home.png" alt="" srcset="">
+          <h1>
+            <?php echo $user['fullname']?> <i class="fas fa-pen-to-square cr"></i>
+          </h1>
+          <p>
+            <?php echo $user['email']?> <br>
+            <?php echo $user['phone']?>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<?php
+end:
+?>
 
 
 
@@ -265,7 +303,15 @@ if ($_COOKIE['login'] === 'true') {
 
 
 
-  <!-- Project JavaScript -->
+
+
+
+
+
+
+
+
+<!-- JavaScript -->
   <script id="dynamic-script" src="src/js/script.js"></script>
   <script src="cachebuster.js"></script>
 </body>
